@@ -62,3 +62,14 @@ document.addEventListener("DOMContentLoaded", () => {
     document.documentElement.style.setProperty("--vh", `${vh}px`);
   });
   
+  async function loadHTML() {
+    const sections = ["about", "work", "school", "contact"];
+    for (const section of sections) {
+        const response = await fetch(`contents/${section}.html`);
+        const data = await response.text();
+        document.getElementById(`${section}`).innerHTML = data;
+    }
+  }
+  
+  // Call the function to load the content
+  loadHTML();

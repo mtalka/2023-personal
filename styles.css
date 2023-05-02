@@ -45,9 +45,9 @@ p, ul {
   margin-bottom: 1rem;
 }
 
-@media (min-width: 768px) {
-  .accordion-header.rotated {
-    /* font-size: 192px; */
+@media (max-width: 768px) {
+  .accordion-item.open {
+    /* border-left: 10px solid; */
   }
 }
 
