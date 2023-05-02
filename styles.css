@@ -10,8 +10,8 @@
 
 .accordion-content {
   font-family: "Inconsolata", monospace;
-  max-height:300px;
-  max-width:300px;
+  flex-shrink: 10;
+  overflow-y: auto;
 }
 
 /* Add these styles */
@@ -19,7 +19,6 @@
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: bold;
   transition: transform 0.3s ease;
-  /* transform-origin: left center; */
 }
 
 .accordion-header.rotated {
@@ -42,10 +41,6 @@ body {
 
 p, ul {
   margin-bottom: 1rem;
-}
-
-.accordion-content {
-  overflow-y: auto;
 }
 
 @media (min-width: 768px) {
