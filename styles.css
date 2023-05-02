@@ -12,6 +12,7 @@
   font-family: "Inconsolata", monospace;
   flex-shrink: 10;
   line-height: normal;
+  max-height: 0;
   
 }
 
