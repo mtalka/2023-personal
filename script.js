@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
           );
   
         // Set max-height of open section to fill remaining space
-        const maxHeight = accordionContainer.offsetHeight - closedSectionsHeight - item.querySelector(".accordion-header").offsetHeight;
+        const maxHeight = window.visualViewport.height - closedSectionsHeight - item.querySelector(".accordion-header").offsetHeight;
         item.querySelector(".accordion-content").style.maxHeight = `${maxHeight}px`;
   
         // Open the clicked section
@@ -51,9 +51,13 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
   
-  // We listen to the resize event
+  // We listen to the resize and orientationchange events
   window.addEventListener("resize", () => {
-    // We execute the same script as before
+    let vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty("--vh", `${vh}px`);
+  });
+  
+  window.addEventListener("orientationchange", () => {
     let vh = window.innerHeight * 0.01;
     document.documentElement.style.setProperty("--vh", `${vh}px`);
   });
