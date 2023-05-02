@@ -37,35 +37,9 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-const scrollingText = document.querySelector(".scrolling-text");
-let scrollPosition = 0;
-
-function autoScroll() {
-  scrollPosition += 1;
-
-  if (scrollPosition >= scrollingText.scrollHeight) {
-    scrollPosition = 0;
-  }
-
-  scrollingText.scrollTop = scrollPosition;
-
-  requestAnimationFrame(autoScroll);
-}
-
-requestAnimationFrame(autoScroll);
-
-function updateViewportDimensions() {
-  const visualViewport = window.visualViewport;
-  const visibleWidth = visualViewport.width;
-  const visibleHeight = visualViewport.height;
-
-  console.log(
-    `Visible width: ${visibleWidth}px, visible height: ${visibleHeight}px`
-  );
-}
-
-// Update dimensions when the viewport changes
-window.visualViewport.addEventListener("resize", updateViewportDimensions);
-
-// Update dimensions on page load
-updateViewportDimensions();
+// We listen to the resize event
+window.addEventListener("resize", () => {
+  // We execute the same script as before
+  let vh = window.innerHeight * 0.01;
+  document.documentElement.style.setProperty("--vh", `${vh}px`);
+});
